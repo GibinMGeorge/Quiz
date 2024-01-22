@@ -5,16 +5,12 @@ body {
     background-color: #f4f4f4;
 }
 
-#CQC{
-    text-align: center;
-}
-
-#start-container {
+#start-container, #question-container, #end-container {
     text-align: center;
     margin-top: 50px;
 }
 
-#start-button {
+button {
     font-size: 20px;
     padding: 10px 20px;
     background-color: #8324d1;
@@ -24,8 +20,7 @@ body {
 }
 
 #question-container {
-    text-align: center;
-    margin-top: 20px;
+    display: none;
 }
 
 #timer-display {
@@ -33,21 +28,27 @@ body {
     margin-bottom: 10px;
 }
 
-#score-display {
-    font-size: 20px;
-    margin-bottom: 20px;
-}
-
-#initials-input {
-    margin-top: 10px;
-}
-
-#initials-input label {
+#options button {
     font-size: 16px;
-    margin-right: 10px;
+    padding: 8px 16px;
+    margin: 5px;
+    background-color: #8324d1;
+    color: #fff;
+    border: none;
+    cursor: pointer;
 }
 
-#initials-input input {
+#end-container {
+    display: none;
+    margin-top: 20px;
+}
+
+#final-score {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#user-initials {
     font-size: 16px;
     padding: 5px;
     margin-right: 10px;
@@ -61,14 +62,3 @@ body {
     border: none;
     cursor: pointer;
 }
-
-button {
-    font-size: 16px;
-    padding: 10px 20px;
-    margin: 5px;
-    background-color: #8324d1;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-}
-

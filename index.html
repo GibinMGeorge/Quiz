@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Quiz Game</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>JavaScript Quiz</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
     <div id="start-container">
@@ -16,16 +14,20 @@
 
     <div id="question-container" style="display: none;">
         <div id="timer-display">Time: <span id="timer">60</span></div>
-        <div id="score-display"></div>
-        <div id="initials-input-container" style="display: none;">
-            <label for="user-initials">Enter Initials:</label>
-            <input type="text" id="user-initials" />
-            <button id="submit-button">Submit</button>
-        </div>
-        
+        <div id="question"></div>
+        <div id="options"></div>
+        <button id="next-button" style="display: none;">Next</button>
     </div>
 
-    <script src="script.js"></script> 
+    <div id="end-container" style="display: none;">
+        <h2>Quiz Over!</h2>
+        <div>Your Score: <span id="final-score"></span></div>
+        <label for="initials">Enter Initials:</label>
+        <input type="text" id="user-initials">
+        <button id="submit-button">Submit</button>
+    </div>
+
+    <script src="script.js"></script>
 
 </body>
 </html>

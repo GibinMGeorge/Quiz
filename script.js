@@ -46,35 +46,32 @@ var questions = [
 var currentQuestionIndex = 0;
 var timer;
 var timeRemaining = 60; // Initial time in seconds
+var userScore = 0;
 
 // Elements
 var startButton = document.getElementById("start-button");
 var questionContainer = document.getElementById("question-container");
 var timerDisplay = document.getElementById("timer");
-var scoreDisplay = document.getElementById("score-display");
-var initialsInputContainer = document.getElementById("initials-input-container");
-var initialsInput = document.getElementById("user-initials");
+var questionDisplay = document.getElementById("question");
+var optionsDisplay = document.getElementById("options");
+var nextButton = document.getElementById("next-button");
+var endContainer = document.getElementById("end-container");
+var finalScoreDisplay = document.getElementById("final-score");
+var userInitialsInput = document.getElementById("user-initials");
 var submitButton = document.getElementById("submit-button");
-var timerElement = document.getElementById("timer");
 
 // Event listener for start button click
 startButton.addEventListener("click", startQuiz);
 
-// Function to start the quiz
 function startQuiz() {
     startButton.style.display = "none";
     questionContainer.style.display = "block";
-    
-    // Ensure the timer display is visible
-    timerDisplay.style.display = "block";
-
-    // Set the initial time
-    timerElement.textContent = timeRemaining;
+    timerDisplay.textContent = timeRemaining;
 
     // Start the timer
-    timerInterval = setInterval(function() {
+    timer = setInterval(function() {
         timeRemaining--;
-        timerElement.textContent = timeRemaining;
+        timerDisplay.textContent = timeRemaining;
 
         // Check if time is up
         if (timeRemaining <= 0 || currentQuestionIndex === questions.length) {
@@ -86,34 +83,39 @@ function startQuiz() {
     displayQuestion();
 }
 
-// Function to display a question
 function displayQuestion() {
     var currentQuestion = questions[currentQuestionIndex];
-    // Display the question and options in HTML
+    questionDisplay.textContent = currentQuestion.question;
 
-    questionContainer.innerHTML = "<h2>" + currentQuestion.question + "</h2>";
-    for (var i = 0; i < currentQuestion.options.length; i++) {
-        questionContainer.innerHTML += "<button onclick='checkAnswer(this.textContent)'>" + currentQuestion.options[i] + "</button>";
-    }
+    // Display options
+    optionsDisplay.innerHTML = "";
+    currentQuestion.options.forEach(function(option, index) {
+        var button = document.createElement("button");
+        button.textContent = option;
+        button.addEventListener("click", function() {
+            checkAnswer(option);
+        });
+        optionsDisplay.appendChild(button);
+    });
 }
 
-// Function to check the answer
 function checkAnswer(userAnswer) {
     var currentQuestion = questions[currentQuestionIndex];
 
     // Check if the answer is correct
     if (userAnswer === currentQuestion.correctAnswer) {
-        // Update score
+        userScore++;
     } else {
         // Subtract time if the answer is incorrect
         timeRemaining -= 10;
-        if (timeRemaining < 10) {
+        if (timeRemaining < 0) {
             timeRemaining = 0;
         }
     }
 
     // Move to the next question
     currentQuestionIndex++;
+
     // Check if it's the last question
     if (currentQuestionIndex === questions.length) {
         endQuiz();
@@ -123,22 +125,18 @@ function checkAnswer(userAnswer) {
     }
 }
 
-// Function to end the quiz
 function endQuiz() {
-    clearInterval(timerInterval);
+    clearInterval(timer);
     questionContainer.style.display = "none";
-    scoreDisplay.textContent = "Your score: " + timeRemaining;
-    initialsInputContainer.style.display = "block"; // Updated variable
+    endContainer.style.display = "block";
+    finalScoreDisplay.textContent = userScore;
 }
 
-// Event listener for submit button click
 submitButton.addEventListener("click", saveScore);
 
-// Function to save the score
 function saveScore() {
-    var userInitials = initialsInput.value;
-    // Save the userInitials and timeRemaining to storage or perform other actions
-
-    localStorage.setItem("highScore", timeRemaining);
-    localStorage.setItem("userInitials", userInitials);
+    var userInitials = userInitialsInput.value;
+    // Save the userInitials and userScore to storage or perform other actions
+    console.log("User Initials:", userInitials);
+    console.log("User Score:", userScore);
 }
