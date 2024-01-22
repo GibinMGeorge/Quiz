@@ -52,8 +52,10 @@ var startButton = document.getElementById("start-button");
 var questionContainer = document.getElementById("question-container");
 var timerDisplay = document.getElementById("timer");
 var scoreDisplay = document.getElementById("score-display");
+var initialsInputContainer = document.getElementById("initials-input-container");
 var initialsInput = document.getElementById("user-initials");
 var submitButton = document.getElementById("submit-button");
+var timerElement = document.getElementById("timer");
 
 // Event listener for start button click
 startButton.addEventListener("click", startQuiz);
@@ -62,12 +64,17 @@ startButton.addEventListener("click", startQuiz);
 function startQuiz() {
     startButton.style.display = "none";
     questionContainer.style.display = "block";
-    timerDisplay.textContent = "Time: " + timeRemaining;
+    
+    // Ensure the timer display is visible
+    timerDisplay.style.display = "block";
+
+    // Set the initial time
+    timerElement.textContent = timeRemaining;
 
     // Start the timer
-    timer = setInterval(function() {
+    timerInterval = setInterval(function() {
         timeRemaining--;
-        timerDisplay.textContent = "Time: " + timeRemaining;
+        timerElement.textContent = timeRemaining;
 
         // Check if time is up
         if (timeRemaining <= 0 || currentQuestionIndex === questions.length) {
@@ -118,10 +125,10 @@ function checkAnswer(userAnswer) {
 
 // Function to end the quiz
 function endQuiz() {
-    clearInterval(timer);
+    clearInterval(timerInterval);
     questionContainer.style.display = "none";
     scoreDisplay.textContent = "Your score: " + timeRemaining;
-    initialsInput.style.display = "block";
+    initialsInputContainer.style.display = "block"; // Updated variable
 }
 
 // Event listener for submit button click
