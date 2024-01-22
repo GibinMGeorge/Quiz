@@ -50,9 +50,9 @@ var timeRemaining = 60; // Initial time in seconds
 // Elements
 var startButton = document.getElementById("start-button");
 var questionContainer = document.getElementById("question-container");
-var timerDisplay = document.getElementById("timer-display");
+var timerDisplay = document.getElementById("timer");
 var scoreDisplay = document.getElementById("score-display");
-var initialsInput = document.getElementById("initials-input");
+var initialsInput = document.getElementById("user-initials");
 var submitButton = document.getElementById("submit-button");
 
 // Event listener for start button click
@@ -82,11 +82,11 @@ function startQuiz() {
 // Function to display a question
 function displayQuestion() {
     var currentQuestion = questions[currentQuestionIndex];
-    // Display the question and options in HTML 
+    // Display the question and options in HTML
 
     questionContainer.innerHTML = "<h2>" + currentQuestion.question + "</h2>";
     for (var i = 0; i < currentQuestion.options.length; i++) {
-         questionContainer.innerHTML += "<button onclick='checkAnswer(this.textContent)'>" + currentQuestion.options[i] + "</button>";
+        questionContainer.innerHTML += "<button onclick='checkAnswer(this.textContent)'>" + currentQuestion.options[i] + "</button>";
     }
 }
 
@@ -96,7 +96,7 @@ function checkAnswer(userAnswer) {
 
     // Check if the answer is correct
     if (userAnswer === currentQuestion.correctAnswer) {
-        // Update score 
+        // Update score
     } else {
         // Subtract time if the answer is incorrect
         timeRemaining -= 10;
@@ -133,4 +133,5 @@ function saveScore() {
     // Save the userInitials and timeRemaining to storage or perform other actions
 
     localStorage.setItem("highScore", timeRemaining);
+    localStorage.setItem("userInitials", userInitials);
 }

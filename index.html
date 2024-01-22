@@ -7,19 +7,19 @@
     <title>Quiz Game</title>
     <link rel="stylesheet" href="style.css" />
 </head>
-<body>
 
+<body>
 
     <div id="start-container">
         <button id="start-button">Start Quiz</button>
     </div>
 
     <div id="question-container" style="display: none;">
-        <div id="timer-display">Time: 60</div>
+        <div id="timer-display">Time: <span id="timer">60</span></div>
         <div id="score-display"></div>
         <div id="initials-input" style="display: none;">
             <label for="initials">Enter Initials:</label>
-            <input type="text" id="initials-input" />
+            <input type="text" id="user-initials" />
             <button id="submit-button">Submit</button>
         </div>
     </div>
