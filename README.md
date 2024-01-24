@@ -14,7 +14,7 @@ JavaScript and CSS file is properly commented.
 
 
 
-* The URL of the deployed application - https://gibinmgeorge.github.io/Password_Generator/
+* The URL of the deployed application - https://gibinmgeorge.github.io/Quiz/
 
 * The URL of the GitHub repository - https://github.com/GibinMGeorge/Quiz
 
