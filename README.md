@@ -21,31 +21,6 @@ JavaScript and CSS file is properly commented.
 
 screenshots - 
 
-![screen ](assets/S1.png)
+![screen ](assets/S1.gif)
 
 
-![screen ](assets/S2.png)
-
-
-![screen ](assets/S3.png)
-
-
-![screen ](assets/S4.png)
-
-
-![screen ](assets/S5.png)
-
-
-![screen ](assets/S6.png)
-
-
-![screen ](assets/S7.png)
-
-
-![screen ](assets/S8.png)
-
-
-![screen ](assets/S9.png)
-
-
-![screen ](assets/S10.png)

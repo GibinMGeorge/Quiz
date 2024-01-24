@@ -1,3 +1,4 @@
+/* Global styling */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -5,11 +6,13 @@ body {
     background-color: #f4f4f4;
 }
 
+/* Styling for containers */
 #start-container, #question-container, #end-container {
     text-align: center;
     margin-top: 50px;
 }
 
+/* Styling for button */
 button {
     font-size: 20px;
     padding: 10px 20px;
@@ -19,10 +22,12 @@ button {
     cursor: pointer;
 }
 
+/* Styling for question */
 #question-container {
     display: none;
 }
 
+/* Styling for timer */
 #timer-display {
     font-size: 24px;
     margin-bottom: 10px;
@@ -31,15 +36,17 @@ button {
     right: 10px;
 }
 
+/* Styling for options */
 #options {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+/* Styling for option buttons */
 #options button {
     font-size: 16px;
-    width: 200px; 
+    width: 200px;
     padding: 10px;
     margin: 5px;
     background-color: #8324d1;
@@ -48,22 +55,26 @@ button {
     cursor: pointer;
 }
 
+/* Styling for end container */
 #end-container {
     display: none;
     margin-top: 20px;
 }
 
+/* Styling for final score */
 #final-score {
     font-size: 24px;
     margin-bottom: 10px;
 }
 
+/* Styling for user initials */
 #user-initials {
     font-size: 16px;
     padding: 5px;
     margin-right: 10px;
 }
 
+/* Styling for submit button */
 #submit-button {
     font-size: 16px;
     padding: 8px 16px;
